@@ -1,0 +1,6 @@
+userData did not work
+
+ebs does not auto mount
+
+
+auto update on boot

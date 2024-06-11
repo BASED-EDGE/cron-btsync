@@ -1,13 +1,14 @@
-# cron-btsync
+# Welcome to your CDK TypeScript project
 
-todo
-cdk set up that spins up an ec2 with resoli sync + EBS
+This is a blank project for CDK development with TypeScript.
 
-then
-a cron lambda that flips it on/off all the time
+The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
+## Useful commands
 
-idea, 
-
-lets us back up resoli sync stuff to cloud, but does not leave it exposed
-
+* `npm run build`   compile typescript to js
+* `npm run watch`   watch for changes and compile
+* `npm run test`    perform the jest unit tests
+* `cdk deploy`      deploy this stack to your default AWS account/region
+* `cdk diff`        compare deployed stack with current state
+* `cdk synth`       emits the synthesized CloudFormation template
