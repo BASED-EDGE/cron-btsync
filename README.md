@@ -1,14 +1,14 @@
-# Welcome to your CDK TypeScript project
+cdk
 
-This is a blank project for CDK development with TypeScript.
+ec2 that deploys a resoli sync container + ebs data store
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+lambda on cron to turn machine on off 
 
-## Useful commands
+purpose
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+personal cloud back up WITHOUT 24/7 on time
+limit exposure
+
+todo
+dont expose port 22, use session manager
+see if can do ipv6 only.....
