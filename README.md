@@ -10,9 +10,13 @@ personal cloud back up WITHOUT 24/7 on time
 limit exposure
 
 todo
-dont expose port 22, use session manager
-see if can do ipv6 only.....
-better docs - (it currently starts on so the toggle schedule is backwards to start with , and needs to manually flipped)
+- dont expose port 22, use session manager
+- see if can do ipv6 only.....
+- better docs - (it currently starts on so the toggle schedule is backwards to start with , and needs to manually flipped)
+- configurations
+  - schedule
+  - ebs size
+  - ssh key name (not doc'd currently)
 
 
 
