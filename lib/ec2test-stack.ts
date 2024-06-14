@@ -68,7 +68,7 @@ export class Ec2TestStack extends cdk.Stack {
         mappingEnabled: true
       }],
       instanceName,
-      keyPair: KeyPair.fromKeyPairName(this, "sync", "sync") // needs to be manually created earlier
+      keyPair: KeyPair.fromKeyPairName(this, "sync2", "sync2") // needs to be manually created earlier
     })
 
     new cdk.CfnOutput(this, 'ec2DnsName', { value: ec2.instancePublicDnsName })
