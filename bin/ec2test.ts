@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { Ec2TestStack } from '../lib/ec2test-stack';
+import 'source-map-support/register'
+import * as cdk from 'aws-cdk-lib'
+import { Ec2TestStack } from '../lib/ec2test-stack'
 
-const app = new cdk.App();
+const app = new cdk.App()
 new Ec2TestStack(app, 'Ec2TestStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
@@ -15,7 +15,7 @@ new Ec2TestStack(app, 'Ec2TestStack', {
 
   /* Uncomment the next line if you know exactly what Account and Region you
    * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
+  //env: { account: '767940047077', region: 'us-west-2' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+})
