@@ -50,7 +50,7 @@ export class Ec2TestStack extends cdk.Stack {
       sudo mount -a
       sudo chown ec2-user /data
       mkdir /data/sync
-      docker run -d --name sync -p 127.0.0.1:8888:8888 -p 55555 -v /data/sync:/mnt/sync --restart always lscr.io/linuxserver/resilio-sync:latest`.split('\n'), // will access server through ssh socks proxy (for extra security)
+      docker run -d --name sync -p 127.0.0.1:8888:8888 -p 55555 -v /data/sync:/sync --restart always lscr.io/linuxserver/resilio-sync:latest`.split('\n'), // will access server through ssh socks proxy (for extra security)
     )
     // watchtower + auto updates from yum
     let ec2 = new Instance(this, 'instace', {
