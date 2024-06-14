@@ -68,6 +68,7 @@ export class Ec2TestStack extends cdk.Stack {
         mappingEnabled: true
       }],
       instanceName,
+      ssmSessionPermissions:true,
       keyPair: KeyPair.fromKeyPairName(this, "sync2", "sync2") // needs to be manually created earlier
     })
 
