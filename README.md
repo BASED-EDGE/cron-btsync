@@ -1,6 +1,6 @@
 cdk
 
-ec2 that deploys a resoli sync container + ebs data store
+ec2 that deploys a resoli sync container https://github.com/linuxserver/docker-resilio-sync (since it will run on arm arch) + ebs data store
 
 lambda on cron to turn machine on off 
 
@@ -29,7 +29,7 @@ ssh -D 9999 -i sync2.pem ec2-user@<elastic ipv4>.<region>.compute.amazonaws.com
 3. visit
 http://localhost4.localdomain4:8888/gui/
 
-todo test https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-port-forwarding
+todo test https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-port-forwarding instead
 
 assumption
 1. your data is already encrypted BEFORE syncing 
