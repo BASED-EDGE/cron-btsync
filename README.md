@@ -29,6 +29,8 @@ ssh -D 9999 -i sync2.pem ec2-user@<elastic ipv4>.<region>.compute.amazonaws.com
 3. visit
 http://localhost4.localdomain4:8888/gui/
 
+todo test https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-port-forwarding
+
 assumption
 1. your data is already encrypted BEFORE syncing 
 
