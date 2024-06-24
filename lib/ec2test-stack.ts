@@ -33,7 +33,7 @@ export class Ec2TestStack extends cdk.Stack {
       'ec2InstanceSecurityGroup',
       { vpc: vpc, allowAllOutbound: true },
     )
-    securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(22)) // replace with SSM ? socksProxy-able?
+    //securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(22)) // enable this if you would like to use boring old ssh
     const userData = UserData.forLinux()
     const instanceName = 'cronsync'
     // Add user data that is used to configure the EC2 instance
@@ -50,7 +50,7 @@ export class Ec2TestStack extends cdk.Stack {
       sudo mount -a
       sudo chown ec2-user /data
       mkdir /data/sync
-      docker run -d --name sync -p 127.0.0.1:8888:8888 -p 55555 -v /data/sync:/sync --restart always lscr.io/linuxserver/resilio-sync:latest`.split('\n'), // will access server through ssh socks proxy (for extra security)
+      docker run -d --name sync -p 127.0.0.1:8888:8888 -p 55555 -v /data/sync:/sync --restart always lscr.io/linuxserver/resilio-sync:latest`.split('\n'), // will access server through ssh/ssm socks proxy (for extra security)
     )
     // watchtower + auto updates from yum
     let ec2 = new Instance(this, 'instace', {
@@ -69,19 +69,21 @@ export class Ec2TestStack extends cdk.Stack {
       }],
       instanceName,
       ssmSessionPermissions:true,
-      keyPair: KeyPair.fromKeyPairName(this, "sync2", "sync2") // needs to be manually created earlier
+      // keyPair: KeyPair.fromKeyPairName(this, "sync2", "sync2") // needs to be manually created earlier . enable if
+			// you would prefer to use boring ssh
     })
 
     new cdk.CfnOutput(this, 'ec2DnsName', { value: ec2.instancePublicDnsName })
 
 
+		// 9-10pm PST
     const startRule = new Rule(this, 'startRule', {
-      schedule: Schedule.expression('cron(0 12 * * ? *)'),
+      schedule: Schedule.expression('cron(0 4 ? * 2 *)'),
 
     })
 
     const stopRule = new Rule(this, 'stopRule', {
-      schedule: Schedule.expression('cron(0 13 * * ? *)'),
+      schedule: Schedule.expression('cron(0 5 ? * 2 *)'),
     })
 
 
